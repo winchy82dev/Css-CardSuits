@@ -1,25 +1,24 @@
-*{
+* {
     box-sizing: border-box;
 }
-:root{
+:root {
     --mainColor: crimson;
 }
-body{
+body {
     background: #000;
     text-align: center;
+    margin-top: 15%;
 }
-
-
 section {
     display: inline-block;
     padding: 40px;
-    margin: 0 auto;
-   
+    margin: 0 auto;   
     height: 100%;
-    
 }
+/*=====*/
 /*HEART*/
-section.hearth{
+/*=====*/
+section.hearth {
     width: 50%;
 }
 .heart div {
@@ -36,42 +35,41 @@ section.hearth{
     transform-origin: 100% 100%;
     transform : rotate(45deg);
 }
-.heart .right{
+.heart .right {
     transform-origin: 0% 100%;
     transform:rotate(-45deg);
 }
-
+/*=====*/
 /*DIAMOND*/
-
-
-.diamond > div{
-    background: var(--mainColor);
+/*=====*/
+.diamond div {
     width: 100px;
     height: 100px;
+    background: var(--mainColor);
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
     transform: scaleX(0.5) rotate(45deg);
 }
-
+/*====*/
 /*CLUB*/
-.club{
+/*====*/
+.club {
     transform: translateY(-49px);
     margin-top: 25px;
 }
-.one{
+.one {
     float: left;
     transform: translateX(40px);
 }
-.middle{
+.middle {
     margin: 0 auto;
     transform: translateY(-30px);
 }
 .two {
     float: right;
     transform: translateX(-40px);
-   
 }
 .one,
 .middle,
@@ -94,12 +92,63 @@ section.hearth{
     border-bottom-left-radius: 8px;   
     border-bottom-right-radius: 8px;   
 }
-
-.spade
- {
+/*====*/
+/*SPADE*/
+/*====*/
+.spade {
     transform: rotate(180deg) translateY(65px);
 }
-
-.spade .base{
+.spade .base {
     transform: rotate(180deg) translateY(175px);
 }
+
+/*=====*/
+/*ANIMATION*/
+/*=====*/
+
+/*heart*/
+#heart {
+    animation: animeHeartDiamond 2s ease-in-out 0s infinite alternate none;
+}
+#diamond {
+    animation: animeHeartDiamond 2s ease-in-out .25s infinite;
+}
+#club {
+    animation: animeClub 2s ease-in-out 0.5s infinite alternate none;
+}
+#spade {
+    animation: animeSpade 2s ease-in-out 0.75s infinite alternate none;
+}
+@keyframes animeHeartDiamond {
+    0%{
+     transform: translateY(0px) scaleX(1) 
+    } 
+    50%{
+     transform: translateY(-15px) scaleX(.8);
+    }
+    100%{
+     transform: scaleX(1);
+    }
+ }
+@keyframes animeClub {
+    0%{
+     transform: translateY(-49px) scaleX(1)
+    } 
+    50%{
+     transform: translateY(-65px) scaleX(.8);
+    }
+    100%{
+     transform: translateY(-49px) scaleX(1);
+    }
+ }
+ @keyframes animeSpade {
+    0%{
+     transform: rotate(180deg) translateY(65px) scaleX(1)
+    } 
+    50%{
+     transform: rotate(180deg) translateY(55px) scaleX(.8);
+    }
+    100%{
+     transform: rotate(180deg) translateY(65px) scaleX(1);
+    }
+ }
